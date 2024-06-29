@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import Header from "./components/header";
+import localFont from "next/font/local";
+import Footer from "./components/footer";
+import RightSidebar from "./components/r-sidebar";
+import LeftSidebar from "./components/l-sidebar";
+import Container from "./components/container";
 
 const inter = Inter({ subsets: ["latin"] });
+const dmsans = DM_Sans({ subsets: ["latin"], variable: "--font-dmsans" });
+const hatton = localFont({
+  src: "../public/hatton.woff2",
+  variable: "--font-hatton",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +28,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${dmsans.variable} ${hatton.variable} flex flex-col font-dmsans bg-[#252521] h-screen scrollbar-hide`}
+      >
+        <Header />
+        <Container>{children}</Container>
+        <Footer />
+
+        <div
+          style={{
+            backgroundImage: `url("/Noise.svg")`,
+          }}
+          className="-z-50 h-full absolute top-0 right-0 w-full bg-no-repeat bg-cover bg-center"
+        >
+          <div
+            style={{
+              backgroundImage: `url("/Ellipse.svg")`,
+            }}
+            className=" h-full w-full relative  blur-[500px] bg-no-repeat bg-cover   bg-left-top opacity-60   "
+          />
+        </div>
+      </body>
     </html>
   );
 }

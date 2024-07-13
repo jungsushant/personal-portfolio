@@ -8,11 +8,13 @@ const AboutContent = () => {
   const [name, setName] = useState("short");
   const bio_data = [
     {
+      id: 1,
       name: "short",
       content:
         "I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project.",
     },
     {
+      id: 2,
       name: "long",
       content:
         "I’m a designer, illustrator, signer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project.and creator of courses, templates, wireframe kits, and the occasionally useful side-project. lorem*20 I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project.I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. lorem*20 I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project. I’m a designer, illustrator, and creator of courses, templates, wireframe kits, and the occasionally useful side-project.",
@@ -95,12 +97,9 @@ const AboutContent = () => {
               <div className=" overflow-y-scroll h-[87%]   ">
                 {bio_data.map((data) => {
                   return (
-                    <div className="">
+                    <div className="" key={data.id}>
                       {name === data.name && (
-                        <p
-                          className="text-base leading-[165%] font-normal "
-                          key={data.name}
-                        >
+                        <p className="text-base leading-[165%] font-normal ">
                           {data.content}
                         </p>
                       )}
